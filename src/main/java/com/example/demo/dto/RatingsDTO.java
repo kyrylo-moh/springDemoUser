@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RatingsDTO implements Serializable {
 
+    @JsonProperty(value = "Source")
     private String source;
+    @JsonProperty(value = "Value")
     private String value;
 
     public RatingsDTO() {
