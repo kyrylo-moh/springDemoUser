@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.model.Movie;
 import com.example.demo.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,13 @@ public class MovieService {
 
     private RequestBuilder requestBuilder;
     private MovieRepository movieRepository;
+    private MovieConverter movieConverter;
 
-    public MovieService(RequestBuilder requestBuilder, MovieRepository movieRepository) {
+    public MovieService(RequestBuilder requestBuilder, MovieRepository movieRepository,
+                        MovieConverter movieConverter) {
         this.requestBuilder = requestBuilder;
         this.movieRepository = movieRepository;
+        this.movieConverter = movieConverter;
     }
 
     public MovieDTO getMovieFromOMDB(String title) {
@@ -23,7 +27,10 @@ public class MovieService {
         return responseBody;
     }
 
-
+    public Movie saveMovie(MovieDTO movieDTO) {
+        Movie movie = movieConverter.convertFromDTO(movieDTO);
+        return movieRepository.save(movie);
+    }
 
 
 }
