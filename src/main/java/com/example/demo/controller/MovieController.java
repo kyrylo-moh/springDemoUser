@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.MovieDTO;
+import com.example.demo.model.Movie;
 import com.example.demo.service.MovieService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +21,10 @@ public class MovieController {
 
 
     @GetMapping("/getMovie")
-    public MovieDTO getMovie(@RequestParam(name = "title") String title) {
+    public Movie getMovie(@RequestParam(name = "title") String title) {
     //public MovieDTO getMovie(String title) {
 
         logger.info("we GET movie from other api OMDB");
-        return movieService.getMovieFromOMDB(title);
+        return movieService.saveMovie(movieService.getMovieFromOMDB(title));
     }
 }
