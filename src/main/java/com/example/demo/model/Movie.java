@@ -1,7 +1,10 @@
 package com.example.demo.model;
 
+import com.example.demo.dto.RatingsDTO;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "MOVIE")
@@ -44,7 +47,7 @@ public class Movie implements Serializable {
 //    @Column(name = "rating_id")
 //    private List<Ratings> ratingsID;
     @Column(name = "Metascore")
-    private Integer metaScore;
+    private String metaScore;
     @Column(name = "imdbRating")
     private Double imdbRating;
     @Column(name = "imdbVotes")
@@ -67,7 +70,37 @@ public class Movie implements Serializable {
     public Movie() {
     }
 
-
+    public Movie(String title, Integer year, String rated, String released,
+                 String runtime, String genre, String director, String writer,
+                 String actors, String plot, String language, String country,
+                 String awards, String poster, String metaScore, Double imdbRating,
+                 String imdbVotes, String imdbID, String type, String dvd,
+                 String boxOffice, String production, String website, Boolean response) {
+        this.title = title;
+        this.year = year;
+        this.rated = rated;
+        this.released = released;
+        this.runtime = runtime;
+        this.genre = genre;
+        this.director = director;
+        this.writer = writer;
+        this.actors = actors;
+        this.plot = plot;
+        this.language = language;
+        this.country = country;
+        this.awards = awards;
+        this.poster = poster;
+        this.metaScore = metaScore;
+        this.imdbRating = imdbRating;
+        this.imdbVotes = imdbVotes;
+        this.imdbID = imdbID;
+        this.type = type;
+        this.dvd = dvd;
+        this.boxOffice = boxOffice;
+        this.production = production;
+        this.website = website;
+        this.response = response;
+    }
 
     public int getMovieID() {
         return movieID;
@@ -189,11 +222,11 @@ public class Movie implements Serializable {
         this.poster = poster;
     }
 
-    public Integer getMetaScore() {
+    public String getMetaScore() {
         return metaScore;
     }
 
-    public void setMetaScore(Integer metaScore) {
+    public void setMetaScore(String metaScore) {
         this.metaScore = metaScore;
     }
 
