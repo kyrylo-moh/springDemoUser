@@ -38,7 +38,7 @@ public class MovieDTO implements Serializable {
     @JsonProperty(value = "Ratings")
     private List<RatingsDTO> ratings;
     @JsonProperty(value = "Metascore")
-    private Integer metaScore;
+    private String metaScore;
     @JsonProperty(value = "imdbRating")
     private Double imdbRating;
     @JsonProperty(value = "imdbVotes")
@@ -65,7 +65,7 @@ public class MovieDTO implements Serializable {
                     String runtime, String genre, String director, String writer,
                     String actors, String plot, String language, String country,
                     String awards, String poster, List<RatingsDTO> ratings,
-                    Integer metaScore, Double imdbRating, String imdbVotes,
+                    String metaScore, Double imdbRating, String imdbVotes,
                     String imdbID, String type, String dvd, String boxOffice,
                     String production, String website, Boolean response) {
         this.title = title;
@@ -155,7 +155,7 @@ public class MovieDTO implements Serializable {
         this.ratings = ratings;
     }
 
-    public void setMetaScore(Integer metaScore) {
+    public void setMetaScore(String metaScore) {
         this.metaScore = metaScore;
     }
 
@@ -255,7 +255,7 @@ public class MovieDTO implements Serializable {
         return ratings;
     }
 
-    public Integer getMetaScore() {
+    public String getMetaScore() {
         return metaScore;
     }
 
