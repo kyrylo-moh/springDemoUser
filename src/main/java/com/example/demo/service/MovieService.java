@@ -21,8 +21,9 @@ public class MovieService {
     public MovieDTO getMovieFromOMDB(String title) {
         MovieDTO responseBody = requestBuilder.getResponseBody(URL + title);
         return responseBody;
-
     }
+
+
 
 
 }
