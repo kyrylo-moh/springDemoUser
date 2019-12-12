@@ -10,7 +10,7 @@ public class MovieConverter {
     public MovieConverter() {
     }
 
-    private Movie convertFromDTO(MovieDTO movieDTO) {
+    public Movie convertFromDTO(MovieDTO movieDTO) {
         return new Movie(
                 movieDTO.getTitle(),
                 movieDTO.getYear(),
