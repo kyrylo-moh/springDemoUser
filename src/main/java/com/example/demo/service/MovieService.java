@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class MovieService {
 
     private String apiKey = "13748ed";
-    private String URL = "http://www.omdbapi.com/?" + apiKey + "&t=";
+    private String URL = "http://www.omdbapi.com/?apikey=" + apiKey + "&t=";
 
     private RequestBuilder requestBuilder;
     private MovieRepository movieRepository;
@@ -18,7 +18,7 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    private MovieDTO getMovieFromOMDB(String title) {
+    public MovieDTO getMovieFromOMDB(String title) {
         MovieDTO responseBody = requestBuilder.getResponseBody(URL + title);
         return responseBody;
 
